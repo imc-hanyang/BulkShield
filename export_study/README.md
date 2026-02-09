@@ -218,5 +218,4 @@ This project is part of an academic research study. Please contact the research 
 ## Acknowledgments
 
 - SRT (Korea Train Express) for domain expertise and collaboration
-- Hanyang University for research support
 
