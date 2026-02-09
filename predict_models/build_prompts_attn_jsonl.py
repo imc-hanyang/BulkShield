@@ -47,14 +47,6 @@ except Exception:
 os.environ["HF_TOKEN"] = VALID_TOKEN
 hf_token = VALID_TOKEN
 
-# NOTE: 이 스크립트는 Transformer만 돌릴 거라서,
-# CUDA_VISIBLE_DEVICES는 여기서 원하는대로 설정해도 됨.
-# 예) Transformer는 GPU 3에서만 돌리고 싶다면:
-#   CUDA_VISIBLE_DEVICES=3 python build_prompts_attn_jsonl.py
-#
-# 코드 안에서 박아두고 싶으면 아래처럼:
-# os.environ["CUDA_VISIBLE_DEVICES"] = "3"
-
 # =========================================================
 # 0) Utils
 # =========================================================
