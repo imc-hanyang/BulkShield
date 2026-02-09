@@ -21,13 +21,7 @@ predict_models/
 │   ├── lstm_model.py               # LSTM classifier
 │   ├── rnn_model.py                # RNN classifier
 │   ├── gru_model.py                # GRU classifier
-│   ├── rnn_with_time_model.py      # RNN with time delta embedding
-│   ├── lstm_with_time_model.py     # LSTM with time delta embedding
-│   ├── gru_with_time_model.py      # GRU with time delta embedding
-│   ├── transformer_combined_model.py # Combined Transformer architecture
-│   ├── simple_models.py            # Logistic Regression, SVR, MLP
-│   ├── deep_svdd_model.py          # Deep SVDD for anomaly detection
-│   └── hmm_model.py                # Hidden Markov Model
+│   └── simple_models.py            # Logistic Regression, SVR, MLP
 │
 ├── # Core Utilities
 ├── data_utils.py                   # Data loading, Dataset classes, preprocessing
@@ -38,12 +32,8 @@ predict_models/
 │
 ├── # Main Training Scripts
 ├── transformer_main.py             # Transformer model training
-├── dl_main.py                      # LSTM-based model training
-├── ml_main.py                      # Traditional ML model training
-├── rnn_with_time_main.py           # RNN with time context training
-├── lstm_with_time_main.py          # LSTM with time context training
-├── gru_with_time_main.py           # GRU with time context training
-├── transformer_combined_main.py    # Combined Transformer training
+├── lstm_main.py                    # LSTM model training
+├── gmm_rnn_gru_main.py             # RNN and GRU model training
 ├── simple_models_main.py           # Simple models training
 │
 ├── # LLM Integration
@@ -51,20 +41,8 @@ predict_models/
 ├── run_vllm_generate_from_jsonl.py # vLLM inference execution
 ├── transformer_result_attention_prompting.py # Attention prompting
 │
-├── # Rule-Based Detection
-├── rulebased_model_main.py         # Pure rule-based evaluation
-├── rulebased_lstm_main.py          # LSTM with rule-based labels
-├── rulebased_rnn_gru_main.py       # RNN/GRU with rule-based labels
-├── rulebased_transformer_main.py   # Transformer with rule-based labels
-├── raw_rulebased_labeling_main.py  # Generate rule-based labels
-│
-├── # One-Class Classification
-├── occ_dl_main.py                  # LSTM-AE, Deep SVDD
-├── occ_ml_main.py                  # iForest, OC-SVM, LOF
-│
 ├── # Analysis & Utilities
 ├── analyze_threshold.py            # Threshold analysis tool
-├── analyze_logs.py                 # Log analysis
 ├── extract_gmm_samples.py          # Sample extraction
 └── ml_results/                     # Saved models and results
 ```
@@ -187,32 +165,12 @@ CUDA_VISIBLE_DEVICES=0 python build_prompts_attn_jsonl.py
 python run_vllm_generate_from_jsonl.py
 ```
 
-### 6. Analyze Results
-
-```bash
-# Threshold analysis
-python analyze_threshold.py --latest
-
-# Interactive threshold testing
-python analyze_threshold.py --path /path/to/results --interactive
-```
-
 ## Model Architectures
 
 ### Transformer Classifier
 - Multi-head self-attention with CLS token pooling
 - Categorical embedding + Numeric projection + Time delta embedding
 - Mixed precision training (AMP) for H100 optimization
-
-### Time-Context Models (RNN/LSTM/GRU)
-- Discretized time delta embedding between transactions
-- Captures inter-event temporal patterns
-- Pack-padded sequence processing
-
-### One-Class Classification
-- LSTM Autoencoder: Reconstruction error-based anomaly detection
-- Deep SVDD: Hypersphere learning for outlier detection
-- iForest/LOF/OC-SVM: Traditional unsupervised methods
 
 ## Evaluation Metrics
 
