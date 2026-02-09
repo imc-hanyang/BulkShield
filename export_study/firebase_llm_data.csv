@@ -1,0 +1,18 @@
+﻿timestamp,labeler_email,task_type,user_info_name,firestore_id,survey_results_comment,survey_results_q1,survey_results_q2,survey_results_q3,survey_results_q4,survey_results_q5,survey_results_q6,user_info_age,user_info_degree,user_info_gender,user_info_job,user_info_uuid
+2026-02-02T09:16:23.506Z,imc@google.com,llm_analysis,장범석,1f7tXwPQPsFbj3Jm4Y3y,"그래프 등을 통해, 승차권 발매, 반환에 대해 쉽게 이해할수 있음",5,5,4,5,2,3,47,학사,male,영업기획부 소관업무 총괄,f6c4f099-8434-4e1a-941e-c07be0655784
+2026-02-02T08:00:43.992Z,imc@google.com,llm_analysis,전용호,4zLwS0zmaTxltynTYP0k,다양한 반환의도가 추리되는 방향으로 나아가면 좋겠습니다~!,5,5,5,5,5,5,39,과장,male,여객제도담당,0f13d531-9954-49e1-bafc-11b21a3e545a
+2026-02-04T01:06:36.725Z,imc@google.com,llm_analysis,심아름,P4kE1aOwAU41Yt23PIym,.,5,5,5,5,5,5,28,학사,female,회원제도,c0f8a99f-7759-4e7f-9234-c3b4ec2b6d95
+2026-02-04T04:46:31.215Z,imc@google.com,llm_analysis,김영준,RdxamrpfXvzAqDkayDqz,"인접좌석 반환일 경우, 반환승차권 정보 외에 함께 예매한 승차권(실제 이용한 승차권) 정보도 같이 확인할 수 있으면 패턴 확인이 더 용이할 것 같습니다.",4,5,3,4,2,4,31,학사,male,사무행정,81f78ec3-42f0-410f-a5c5-a46ff4b7902d
+2026-02-03T00:53:36.505Z,imc@google.com,llm_analysis,임설빈,Wry8SPIHb6PDCABw6U1P,"자료가 일별 발매 반환 이라면  운행일자별 기록도 필요할 것으로 생각됨.
+
+17일에  23일, 26일 출발 승차권 2장을 반환할 경우,  반환일자는 17일로 2건이 잡히지만
+
+실제 업무시에는 ""23일, 26일 승차권을 취소했다"" 라는 사실도 함께 필요할 것으로 생각됨",5,3,4,2,3,5,35,학사,male,본사 스텝,304382c1-89dd-4ae0-b622-14eb8f18ebaf
+2026-01-30T09:18:25.626Z,imc@google.com,llm_analysis,,frk5PqrMI6huzYNtAHU4,정보확인중입니다,5,5,5,5,5,5,88,88,female,88,0e2066fc-f753-4810-90f4-80f765751154
+2026-02-02T11:24:44.445Z,imc@google.com,llm_analysis,이지현,hFkp0vJaP4sEGpM2KbgB,"그래프를 통해 발매, 반환 금액의 변화를 정량적으로 제시하여 이용 패턴을 직관적으로 이해하는 데 도움이 되었습니다.",4,5,5,5,1,5,25,학사,female,영업기획처 마케팅부,51f65f04-5c17-42af-a5ac-fdc72e889289
+2026-02-04T03:22:21.776Z,imc@google.com,llm_analysis,노진주,iTyomDDFU4jODOCfL34X,"시각적 형태의 그래프 제공으로 이해하기가 용이합니다.
+세부 반환 내역중 ""도착 후 역방향 발매건 출발까지 최소 간격"" 표현에 대한 이해가 어렵습니다
+
+발매,반환일자 외 운행일자에 대한 그래프 추가하여 주말전후(금또는월) 승차권을 대상으로 발매 및 반환이 집중적으로 이루어지고 있음을 시각화하면 좋을 것 같습니다",5,5,5,5,5,5,33,학사,female,데이터분석,787b5139-ef5b-43e4-978f-5a0d75d573f6
+2026-02-02T09:24:59.678Z,imc@google.com,llm_analysis,김재욱,lhVwIpnYV2BXUvwduqMZ,없습니다,5,5,5,5,5,5,47,학사,male,마케팅업무,0ffcc97b-c0f8-47fd-bba4-b4c0bb669573
+2026-02-04T06:03:04.207Z,imc@google.com,llm_analysis,남경준,m7Qied881mFayTQuG0FU,신뢰가능한 주요데이터를 수치화 제시가 필요합니다.,5,5,5,5,5,5,48,학사,male,마케팅 부장,1b25ccd5-cd19-42e0-b641-54eaa5583e6d

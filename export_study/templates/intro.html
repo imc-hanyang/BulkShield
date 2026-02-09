@@ -1,0 +1,162 @@
+<style>
+    .intro-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: 'Noto Sans KR', sans-serif;
+        line-height: 1.6;
+        color: #334155;
+    }
+
+    .intro-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .intro-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 10px;
+    }
+
+    .intro-subtitle {
+        font-size: 1.2rem;
+        color: #64748b;
+        font-weight: 500;
+    }
+
+    .intro-card {
+        background: white;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        margin-bottom: 30px;
+        border-left: 5px solid #3b82f6;
+    }
+
+    .intro-section-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .intro-text {
+        margin-bottom: 15px;
+        font-size: 1.05rem;
+    }
+
+    .highlight {
+        color: #2563eb;
+        font-weight: 600;
+    }
+
+    .btn-start {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 40px auto 0;
+        padding: 16px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: white;
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-start:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
+    }
+
+    .icon {
+        font-size: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+        .intro-container {
+            padding: 15px;
+        }
+
+        .intro-title {
+            font-size: 1.5rem;
+        }
+
+        .intro-card {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .intro-section-title {
+            font-size: 1.15rem;
+        }
+
+        .btn-start {
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 14px;
+        }
+    }
+</style>
+
+<header class="intro-header">
+    <h1 class="intro-title">Development of AI Model for Preemptive Detection of Mass Refund Potential Risks</h1>
+</header>
+
+<div class="intro-card">
+    <h2 class="intro-section-title">
+        <span class="icon">🎯</span> Research Purpose
+    </h2>
+    <p class="intro-text">
+        This study aims to move away from post-punishment methods based on uniform criteria. Instead, it seeks to
+        analyze user booking patterns to preemptively identify users with a high probability of mass refunds, thereby
+        preventing seat hogging and ensuring fair seat access for all customers.
+    </p>
+    <p class="intro-text">
+        To this end, we aim to verify the validity of detection result interpretations and mass refund risk group
+        criteria through validation by SRT practitioners, thereby securing the reliability of this research.
+    </p>
+</div>
+
+<div class="intro-card" style="border-left-color: #8b5cf6;">
+    <h2 class="intro-section-title">
+        <span class="icon">🤖</span> Expert Survey #1: Evaluation of Preemptive Mass Refund Risk Detection Result
+        Interpretation
+    </h2>
+    <p class="intro-text">
+        The research team has generated explanations for users classified as mass refund risk groups by the developed
+        preemptive detection model, to facilitate understanding of the basis for these results and booking intentions.
+    </p>
+    <p class="intro-text">
+        In this step, we aim to evaluate whether the generated explanations help in understanding the user's
+        booking/refund behavior and whether they can be used as reference material for determining management or action
+        in practice.
+    </p>
+</div>
+
+<div class="intro-card" style="border-left-color: #10b981;">
+    <h2 class="intro-section-title">
+        <span class="icon">📝</span> Expert Survey #2: Verification of Criteria for Mass Refund and Normal Groups
+    </h2>
+    <p class="intro-text">
+        For the development of the preemptive mass refund detection model, the research team analyzed users' refund
+        patterns to distinguish between suspected mass refund groups and normal groups.
+    </p>
+    <p class="intro-text">
+        In this step, we aim to verify whether these criteria are valid from an SRT practical perspective. We ask for
+        your opinion on whether each case requires management or interpretation of booking intentions, to secure the
+        reliability of model development.
+    </p>
+</div>
+
+<button id="btn-start" class="btn-start">
+    Participate in Research and Start Survey
+</button>

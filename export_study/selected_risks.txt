@@ -1,0 +1,48 @@
+=== Entry 2 (Risk: 0.99853515625) ===
+Test Path: /home/srt/Dataset/feature/sequence_data_28d_test/group_23/seq_007c6c8d2a9c9c870b379f200c245f9c8a5892b057f373f27cc6e31069070a65_20240514.csv
+- usage-context numbers (e.g., same-route purchases in window: 15)
+- anomaly-signals (e.g., recent same-route refunds: 1)
+- other relevant details (e.g., seats, paid/refunded amount, gap arrival→return trip)
+
+Here is the output format:
+[CUMULATIVE]
+Refund rate: 83.9% (52 refunds out of 62 purchases)
+Refund amount: ₩1,957,500
+
+[INTERPRETATION]
+Weekend/leisure traveler
+[2024-04-25 05:17:18] [REFUND] for 01수서→12부산 (Sat 18:00 departure) with a short holding time (1 min) and a high refund rate (2 refunds out of 15 same-route purchases in window) suggests an unusual pattern.
+[2024-04-21 03:39:28] [PURCHASE] for 09동대구→01수서 (Sun 18:00 departure) with overlapping tickets (6) and a short re-purchase gap (3 min) indicates a possible attempt to exploit the system.
+[2024-05-13 10:25:27] [PURCHASE] for 09동대
+
+=== Entry 4 (Risk: 0.99853515625) ===
+Test Path: /home/srt/Dataset/feature/sequence_data_28d_test/group_30/seq_02164855b0a21911add18de32973fcb68459370edd0aac9c5bd958a4ed44d1c5_20240326.csv
+- [2024-03-13 07:40:36] [REFUND] for [2024-03-13] (Wed 12:00) 01수서→12부산 ...
+
+Here is the output:
+A) [CUMULATIVE]
+Refund rate: 72.5%, Refund count: 37, Total refund amount: ₩1,934,800
+
+B) [INTERPRETATION]
+Weekend home-and-return
+[2024-03-13 07:40:36] [REFUND] for [2024-03-13] (Wed 12:00) 01수서→12부산 ...: Unusual refund timing (309 min before departure) and high same-route refund rate (0.83).
+[2024-03-20 11:17:20] [PURCHASE] for [2024-03-20] (Wed 13:00) 01수서→12부산 ...: Overlapping tickets (1) and short same-route re-purchase gap (525 min).
+[2024-03-18 18:38:09] [REFUND] for [2024-03-19] (Tue 6:00)
+
+=== Entry 10 (Risk: 0.99853515625) ===
+Test Path: /home/srt/Dataset/feature/sequence_data_28d_test/group_18/seq_041319697ed0b0e31ededc0666b1392050c97a41bcab209e83ed960d7271892b_20240306.csv
+Format example:
+[2024-03-06 08:39:56] [REFUND] for [2024-04-06] (Sat 20:00) 01수서→11울산 ...
+```
+
+
+
+A) [CUMULATIVE]
+The user has a refund rate of 97.4% with 37 refunds out of 38 purchases, totaling ₩1,719,000 in refunds.
+
+B) [INTERPRETATION]
+Weekend/leisure traveler
+[2024-03-06 08:39:56] [REFUND] for [2024-04-06] (Sat 20:00) 01수서→11울산 ... is abnormal due to the high refund rate (0.34) and adjacent-seat refund observed, suggesting a possible ticketing strategy.
+[2024-03-06 10:57:30] [REFUND] for [2024-04-06] (Sat 15:00) 01수서→11울산 ... is abnormal due to the high refund rate (0.38) and adjacent-seat refund observed, suggesting a possible ticketing strategy.
+The user's behavior deviates from the typical pattern of a weekend/leisure traveler due
+

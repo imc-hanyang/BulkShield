@@ -1,0 +1,958 @@
+/* 기존 스타일 유지 (root, body, table, mobile 등) */
+:root {
+    --primary: #3b82f6;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --bg: #f8f9fa;
+    --card: #fff;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--bg);
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.app-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 로딩 스피너 */
+.loading-box {
+    text-align: center;
+    padding: 50px;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 테이블 및 카드 스타일 (반응형) */
+.table-header {
+    display: grid;
+    grid-template-columns: 0.5fr 0.8fr 0.8fr 1.2fr 1fr 1.5fr;
+    grid-template-rows: repeat(2, 1fr);
+    background: #dee2e6;
+    /* Gap color (Border color) */
+    gap: 1px;
+    /* Creates the border lines */
+    border: 1px solid #dee2e6;
+    /* Outer border */
+    border-bottom: none;
+    /* Connected to data */
+    padding: 0;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+    align-items: stretch;
+    overflow: hidden;
+    /* For border-radius */
+}
+
+.table-header>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    word-break: keep-all;
+    line-height: 1.2;
+    background: #e9ecef;
+    /* Cell background */
+    padding: 8px 2px;
+}
+
+/* 그리드 스팬 유틸리티 (헤더용) */
+.header-group {
+    /* border-bottom removal needed as gap handles it, but spanned items need help? 
+       Wait, if we use gap, the gap exists between Row 1 and Row 2.
+       So Group 1 (Row 1) and Sub 1 (Row 2) will have a gap (line) between them.
+       Perfect. */
+    background-color: #dee2e6 !important;
+    font-size: 0.9rem;
+}
+
+.header-sub {
+    font-size: 0.85rem;
+    color: #495057;
+}
+
+/* Header Colors (Blue/Green Distinction) */
+.header-id,
+.header-decision {
+    background-color: #f3f4f6 !important;
+    /* Neutral for ID/Decision */
+}
+
+.header-booking {
+    background-color: #dbeafe !important;
+    /* Blue-100 for Booking Group */
+}
+
+.header-booking-sub {
+    background-color: #eff6ff !important;
+    /* Blue-50 for Booking Sub */
+}
+
+.header-query {
+    background-color: #dcfce7 !important;
+    /* Green-100 for Query Group */
+}
+
+.header-query-sub {
+    background-color: #f0fdf4 !important;
+    /* Green-50 for Query Sub */
+}
+
+/* 그리드 위치 지정 */
+.grid-row-span-2 {
+    grid-row: span 2;
+}
+
+.grid-col-span-2 {
+    grid-column: span 2;
+}
+
+.grid-col-span-3 {
+    grid-column: span 3;
+}
+
+.grid-col-span-4 {
+    grid-column: span 4;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Data Row & Vertical Striping */
+.data-row {
+    display: grid;
+    grid-template-columns: 0.5fr 0.8fr 0.8fr 1.2fr 1fr 1.5fr;
+    background: #dee2e6;
+    /* Gap color */
+    gap: 1px;
+    border: 1px solid #dee2e6;
+    border-top: none;
+    /* Connect to header/prev row */
+    padding: 0;
+    align-items: stretch;
+}
+
+.data-row:last-child {
+    border-radius: 0 0 8px 8px;
+    border-bottom: 1px solid #dee2e6;
+    overflow: hidden;
+}
+
+/* 셀 스타일 */
+.table-header>div,
+.data-row>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* border-right: 1px solid #d1d5db; */
+    /* 헤더/데이터 공통 보더 색상 통일 */
+    background: var(--card);
+    /* Default white background */
+    padding: 15px 5px;
+    /* Adjust padding */
+}
+
+/* Remove manual borders */
+.table-header>div,
+.data-row>div,
+.table-header>div:nth-of-type(4),
+.data-row>div:last-child {
+    border-right: none;
+}
+
+/* Data List Wrapper */
+.data-list-wrapper {
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+/* Custom Tooltip (Desktop Only) */
+@media (min-width: 769px) {
+    [data-tooltip]:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        white-space: normal;
+        word-break: keep-all;
+        width: max-content;
+        max-width: 300px;
+        text-align: center;
+        z-index: 9999;
+        opacity: 0;
+        animation: fadeIn 0.2s forwards;
+        animation-delay: 0.1s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        bottom: 100%;
+    }
+}
+
+/* 기존 Zebra Striping 유지 */
+.data-row>div:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* 라디오 버튼 디자인 */
+.radio-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.radio-label {
+    cursor: pointer;
+    padding: 6px 16px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+
+    /* Uniform Button Size */
+    min-width: 40px;
+    height: 40px;
+    /* Specific height for better icon centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s;
+}
+
+.radio-label svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 3;
+    /* Make icons slightly bolder */
+}
+
+/* Remove separate x font weight rule */
+
+.radio-label:hover {
+    filter: brightness(0.95);
+}
+
+.opt-o:has(input:checked) {
+    background: #d1fae5;
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.opt-triangle:has(input:checked) {
+    background: #fef3c7;
+    border-color: var(--warning);
+    color: var(--warning);
+}
+
+.opt-x:has(input:checked) {
+    background: #fee2e2;
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.radio-label input {
+    display: none;
+}
+
+/* 버튼 */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+    border: 1px solid #ccc;
+}
+
+.btn-success {
+    background: var(--success);
+    color: white;
+    width: 100%;
+}
+
+/* Selection View Styles */
+.selection-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.selection-card {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid var(--border);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.selection-card:hover:not(.disabled) {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.selection-card.disabled {
+    opacity: 0.6;
+    cursor: default;
+    background-color: #f3f4f6;
+}
+
+.selection-card.completed {
+    border-color: var(--success);
+    background-color: #f0fdf4;
+}
+
+#finish-container {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.selection-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.form-container {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    .table-header {
+        display: none;
+    }
+
+    .data-row {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        padding: 15px;
+        background-color: var(--card);
+        /* 모바일: 카드 배경 흰색(회색 제거) */
+    }
+
+    /* 패딩 복구 */
+    .data-row>div {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #f3f4f6;
+        border-right: none;
+        /* 모바일에서는 세로 구분선 제거 */
+    }
+
+    .data-row>div:nth-child(1)::before {
+        content: "ID";
+        color: #888;
+    }
+
+    /* 현재로부터 1주 이내 */
+    /* 발매 건수 */
+    .data-row>div:nth-child(2)::before {
+        content: "4주 동안 발매 건수";
+        color: #10b981;
+        font-weight: 500;
+    }
+
+    /* 반환 건수 */
+    .data-row>div:nth-child(3)::before {
+        content: "4주 동안 반환 건수";
+        color: #10b981;
+        font-weight: 500;
+    }
+
+    /* 반환액 */
+    .data-row>div:nth-child(4)::before {
+        content: "4주 동안 반환액";
+        color: #10b981;
+        font-weight: 500;
+    }
+
+    /* 반환율 */
+    .data-row>div:nth-child(5)::before {
+        content: "4주 동안 반환율";
+        color: #10b981;
+        font-weight: 500;
+    }
+
+    .data-row>div:last-child {
+        border-bottom: none;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .radio-label {
+        padding: 10px 30px;
+        font-size: 1.1rem;
+    }
+
+    /* 모바일에서는 세로 줄무늬 제거 (흰색으로 통일) */
+    .data-row>div:nth-child(even) {
+        background-color: var(--card);
+    }
+}
+
+/* LLM Analysis View Styles */
+.llm-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.split-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    align-items: stretch;
+    /* Stretch to match height of right panel */
+}
+
+.left-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+    /* Critical for chart responsiveness in flex containers */
+    justify-content: center;
+    /* Vertically center the chart */
+}
+
+.right-panel {
+    flex: 1.2;
+    background: var(--card);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.image-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.analysis-img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: #333;
+    /* Placeholder visual for white transparent logos */
+}
+
+/* Analysis Text Styles */
+.analysis-section {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.analysis-section:last-child {
+    border-bottom: none;
+}
+
+.analysis-section h3 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.highlight-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.log-entry {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--warning);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.timestamp {
+    color: #64748b;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.route {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.warning {
+    color: #ef4444;
+    /* Red for abnormal events */
+    font-weight: 600;
+}
+
+.gray-text {
+    font-weight: normal;
+    color: #9ca3af;
+    /* Gray-400 */
+    font-size: 1rem;
+}
+
+.analysis-summary {
+    background: #eff6ff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #bfdbfe;
+    color: #1e3a8a;
+    line-height: 1.6;
+}
+
+.full-width-card {
+    margin-top: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .split-container {
+        flex-direction: column;
+    }
+
+    .left-panel,
+    .right-panel {
+        width: 100%;
+        flex: none;
+        max-height: none;
+    }
+
+    .image-card,
+    .chart-container-wrapper,
+    .right-panel,
+    .survey-section {
+        padding: 15px;
+        /* Unified padding for mobile */
+    }
+
+    .controls {
+        flex-direction: column-reverse;
+        /* Stack buttons, submit on top ideally but user asked for standard layout */
+    }
+
+    .controls .btn {
+        width: 100%;
+    }
+}
+
+/* Survey Section Styles */
+.interpretation-header {
+    background: #e0f2fe;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin: 10px 0 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0369a1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.summary-text-merged {
+    display: block;
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #333;
+    font-weight: normal;
+}
+
+.chart-container-wrapper {
+    position: relative;
+    height: 48%;
+    /* Split height for two charts */
+    width: 100%;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+    padding: 10px;
+    overflow: hidden;
+    /* Prevent infinite resize loop */
+}
+
+.badge {
+    background: #0284c7;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.survey-section {
+    background: white;
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.survey-desc {
+    color: #64748b;
+    margin-bottom: 2rem;
+}
+
+.survey-item {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 15px;
+}
+
+/* On mobile, stack them */
+@media (max-width: 600px) {
+    .survey-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+.q-text {
+    font-weight: 500;
+    margin: 0;
+    flex: 1;
+}
+
+.likert-scale {
+    display: flex;
+    gap: 15px;
+    background: #f8fafc;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.likert-scale label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.likert-scale input {
+    margin-top: 8px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+}
+
+.comment-box {
+    margin-top: 30px;
+}
+
+.comment-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#user-comment {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+    font-family: inherit;
+}
+
+#user-comment:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Added for LLM Analysis Refactor */
+#charts-view {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    justify-content: center;
+}
+
+/* Blue Action Button (similar to Intro page) */
+.btn-blue-action {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border: none;
+    border-radius: 12px;
+    /* Slightly rounded */
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+}
+
+.btn-blue-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+}
+
+/* Details View Responsive Behavior */
+#details-view {
+    background: white;
+    padding: 20px;
+    /* Default (Mobile): Flow layout, natural height */
+}
+
+@media (min-width: 900px) {
+    .split-container {
+        /* Ensure left panel matches right panel height */
+        align-items: stretch;
+    }
+
+    .left-panel {
+        position: relative;
+        /* Ensure it accepts absolute children */
+    }
+
+    #details-view {
+        /* Desktop: Absolute overlay to match container height */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        z-index: 10;
+        border-radius: 8px;
+        /* Optional: match container radius */
+    }
+}
+
+/* Gender Selection Styles */
+.gender-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.gender-btn {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: #f8f9fa;
+    /* Default Gray */
+    color: #64748b;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.gender-btn:hover {
+    background: #e2e8f0;
+}
+
+.gender-btn.selected-male {
+    background: #eff6ff;
+    /* Blue-50 */
+    border-color: #3b82f6;
+    /* Blue-500 */
+    color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.gender-btn.selected-female {
+    background: #fdf2f8;
+    /* Pink-50 */
+    border-color: #ec4899;
+    /* Pink-500 */
+    color: #ec4899;
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.2);
+}
+
+
+/* Stats Grid Styles */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.stat-box {
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.stat-box.purchase {
+    background-color: #f0f9ff;
+    border-color: #bae6fd;
+    color: #0369a1;
+}
+
+.stat-box.refund {
+    background-color: #fef2f2;
+    border-color: #fecaca;
+    color: #b91c1c;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    opacity: 0.9;
+}
+
+.stat-value-main {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.stat-value-sub {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.highlight-pattern {
+    color: #ef4444;
+    /* Red */
+    font-weight: 800;
+    font-size: 1.3rem;
+}

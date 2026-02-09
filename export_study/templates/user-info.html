@@ -1,0 +1,43 @@
+<div class="form-group">
+    <label class="form-label">이름 (Name)</label>
+    <input type="text" id="input-name" class="form-input" placeholder="Please enter your name">
+</div>
+
+<div class="form-group">
+    <label class="form-label">학위 (Degree)</label>
+    <input type="text" id="input-degree" class="form-input" placeholder="e.g., Bachelor, Master, PhD, etc.">
+</div>
+
+<div class="form-group">
+    <label class="form-label">나이 (Age)</label>
+    <input type="number" id="input-age" class="form-input" placeholder="e.g. 30" min="1" max="120" step="1">
+</div>
+
+<div class="form-group">
+    <label class="form-label">성별 (Gender)</label>
+    <div class="gender-group">
+        <div id="btn-male" class="gender-btn" aria-label="Male">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
+                <circle cx="12" cy="6" r="3.5" />
+                <path
+                    d="M 12 11 C 9.5 11 8 12 8 14 L 8 19 L 10.5 19 L 10.5 24 L 13.5 24 L 13.5 19 L 16 19 L 16 14 C 16 12 14.5 11 12 11 Z" />
+            </svg>
+        </div>
+        <div id="btn-female" class="gender-btn" aria-label="Female">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
+                <circle cx="12" cy="6" r="3.5" />
+                <path d="M 12 11 C 9.5 11 7 12 7 14 L 5 22 L 19 22 L 17 14 C 17 12 14.5 11 12 11 Z" />
+            </svg>
+        </div>
+    </div>
+    <input type="hidden" id="input-gender">
+</div>
+
+<div class="form-group">
+    <label class="form-label">SRT 직무 (Job at SRT)</label>
+    <input type="text" id="input-job" class="form-input" placeholder="e.g. Data Analysis, Station Staff, etc.">
+</div>
+
+<div class="text-center mt-4">
+    <button id="btn-start" class="btn btn-primary" style="width: 100%">다음 (Next)</button>
+</div>

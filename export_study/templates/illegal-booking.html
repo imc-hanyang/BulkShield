@@ -1,0 +1,71 @@
+<div id="loading-spinner" class="loading-box">
+    <div class="spinner"></div>
+    <p>Loading Illegal Booking Analysis Data...</p>
+</div>
+
+<section id="work-section" class="hidden">
+    <div class="guide-box"
+        style="margin-bottom: 30px; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+        <h2 style="margin: 0 0 10px; font-size: 1.25rem; color: #1e293b;">Verification of Criteria for Mass Refund and
+            Normal Groups</h2>
+        <div style="margin: 0 0 20px; color: #334155; font-size: 1rem; line-height: 1.6;">
+            <p style="margin-bottom: 10px;">
+                This page utilizes statistical techniques to analyze booking and refund patterns from various angles to
+                identify users who exhibit <span style="font-weight: 600; color: #2563eb;">repetitive and structural
+                    refund behaviors</span>, even if they do not reach <span
+                    style="font-weight: 600; color: #1e293b;">existing quantitative threshold criteria</span> (e.g.,
+                monthly booking amount of 1 million KRW, refund rate of 90% or higher), or if they evade thresholds or
+                involve small amounts, deducing <strong>new risk groups</strong>.
+            </p>
+            <p style="margin-bottom: 0;">
+                Please check the <strong>cumulative booking and refund history</strong> of each user for a
+                <strong>4-week period</strong> and judge whether they are <strong>targets requiring further
+                    interpretation</strong> in the same way as the previous survey examples.
+            </p>
+        </div>
+        <div class="legend" style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <span style="display: flex; align-items: center; gap: 6px; color: #10b981; font-weight: 600;">
+                <i data-feather="circle" style="width: 16px; height: 16px;"></i> Sanction Required
+            </span>
+            <span style="display: flex; align-items: center; gap: 6px; color: #f59e0b; font-weight: 600;">
+                <i data-feather="triangle" style="width: 16px; height: 16px;"></i> Booking/Refund Intention
+                Interpretation Required
+            </span>
+            <span style="display: flex; align-items: center; gap: 6px; color: #ef4444; font-weight: 600;">
+                <i data-feather="x" style="width: 16px; height: 16px;"></i> Interpretation Not Required (Normal User)
+            </span>
+        </div>
+    </div>
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+    </div>
+    <div class="status-info" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+        <span>Progress: <b id="progress-text">0%</b></span>
+        <span>Page: <b id="current-page">1</b> / <span id="total-pages">--</span></span>
+    </div>
+
+    <div class="data-list-wrapper">
+        <div class="table-header">
+            <div class="center grid-row-span-2 header-id">ID</div>
+
+            <!-- Group 2 -->
+            <div class="center grid-col-span-4 header-group header-query">Based on Booking Count for 4 Weeks</div>
+
+            <!-- Decision -->
+            <div class="center grid-row-span-2 header-decision">Decision (O/X)</div>
+
+            <!-- Sub Row -->
+            <div class="center header-sub header-query-sub">Purchase Count</div>
+            <div class="center header-sub header-query-sub">Refund Count</div>
+            <div class="center header-sub header-query-sub">Refund Amount</div>
+            <div class="center header-sub header-query-sub">Refund Rate</div>
+        </div>
+        <div id="data-container"></div>
+    </div>
+
+    <div class="controls">
+        <button id="prev-btn" class="btn btn-secondary" disabled>이전 (Prev)</button>
+        <button id="next-btn" class="btn btn-primary">다음 (Next)</button>
+        <button id="submit-btn" class="btn btn-success hidden">제출 (Submit)</button>
+    </div>
+</section>
