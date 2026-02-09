@@ -38,7 +38,6 @@ except Exception:
     COL_ALIAS = {}
 
 # Force use of the known valid token to avoid environment variable overrides
-VALID_TOKEN = "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"
 os.environ["HF_TOKEN"] = VALID_TOKEN
 hf_token = VALID_TOKEN
 
