@@ -5,12 +5,12 @@ export { collection, addDoc };
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyByyzGjMK1okYuSWY4Jvh-prZkavLq0Pkk",
-    authDomain: "srt-export-test.firebaseapp.com",
-    projectId: "srt-export-test",
-    storageBucket: "srt-export-test.firebasestorage.app",
-    messagingSenderId: "183020505952",
-    appId: "1:183020505952:web:0fbb38bd7cee52b35bec05"
+    apiKey: "apiKey",
+    authDomain: "authDomain",
+    projectId: "projectId",
+    storageBucket: "storageBucket",
+    messagingSenderId: "messagingSenderId",
+    appId: "appId"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -18,8 +18,8 @@ export const db = getFirestore(app);
 export const auth = getAuth(app);
 
 // Credentials
-export const ADMIN_EMAIL = "imc@google.com";
-export const ADMIN_PWD = "1234qwer";
+export const ADMIN_EMAIL = "ADMIN_EMAIL";
+export const ADMIN_PWD = "ADMIN_PWD";
 
 // Config
 // 1. Collection for Illegal Booking Verification
