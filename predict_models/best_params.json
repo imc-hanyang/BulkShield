@@ -1,0 +1,18 @@
+{
+    "arima_order": [
+        0,
+        0,
+        1
+    ],
+    "sarima_order": [
+        0,
+        0,
+        1
+    ],
+    "sarima_seasonal": [
+        0,
+        0,
+        0,
+        7
+    ]
+}
